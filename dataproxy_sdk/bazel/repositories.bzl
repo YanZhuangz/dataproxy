@@ -52,22 +52,14 @@ def _yacl():
     )
 
 def _kuscia():
-    # maybe(
-    #     http_archive,
-    #     name = "kuscia",
-    #     urls = [
-    #         "https://github.com/secretflow/kuscia/archive/refs/tags/v0.11.0b0.tar.gz",
-    #     ],
-    #     strip_prefix = "kuscia-0.11.0b0",
-    #     sha256 = "c8de425a5f442ba3fa30a9b5943f9fd056efd9ab610ddc2168d5ffcf71224974",
-    # )
-
-    # TODO：发版需要替换成github地址
     maybe(
-        git_repository,
+        http_archive,
         name = "kuscia",
-        commit = "04b5f468a397a0a9e54b34a461fcd6e81b2aad9a",
-        remote = "git@code.alipay.com:secretflow/kuscia.git",
+        urls = [
+            "https://github.com/secretflow/kuscia/archive/refs/tags/v0.11.0b0.tar.gz",
+        ],
+        strip_prefix = "kuscia-0.11.0b0",
+        sha256 = "c8de425a5f442ba3fa30a9b5943f9fd056efd9ab610ddc2168d5ffcf71224974",
     )
 
 def _bazel_rules_pkg():
