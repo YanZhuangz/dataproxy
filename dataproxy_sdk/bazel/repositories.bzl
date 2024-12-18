@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 load("@bazel_tools//tools/build_defs/repo:utils.bzl", "maybe")
 
@@ -51,14 +52,22 @@ def _yacl():
     )
 
 def _kuscia():
+    # maybe(
+    #     http_archive,
+    #     name = "kuscia",
+    #     urls = [
+    #         "https://github.com/secretflow/kuscia/archive/refs/tags/v0.11.0b0.tar.gz",
+    #     ],
+    #     strip_prefix = "kuscia-0.11.0b0",
+    #     sha256 = "c8de425a5f442ba3fa30a9b5943f9fd056efd9ab610ddc2168d5ffcf71224974",
+    # )
+
+    # TODO：发版需要替换成github地址
     maybe(
-        http_archive,
+        git_repository,
         name = "kuscia",
-        urls = [
-            "https://github.com/secretflow/kuscia/archive/refs/tags/v0.11.0b0.tar.gz",
-        ],
-        strip_prefix = "kuscia-0.11.0b0",
-        sha256 = "c8de425a5f442ba3fa30a9b5943f9fd056efd9ab610ddc2168d5ffcf71224974",
+        commit = "04b5f468a397a0a9e54b34a461fcd6e81b2aad9a",
+        remote = "git@code.alipay.com:secretflow/kuscia.git",
     )
 
 def _bazel_rules_pkg():
