@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
     - main
+    - sync-main-1218
 permissions:
   contents: read
 jobs:
